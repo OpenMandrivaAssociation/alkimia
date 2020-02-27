@@ -30,6 +30,8 @@ BuildRequires: cmake(KF5KDELibs4Support)
 BuildRequires: cmake(KF5NewStuff)
 BuildRequires: cmake(KF5TextWidgets)
 BuildRequires: cmake(KF5WidgetsAddons)
+BuildRequires: cmake(KF5Package)
+BuildRequires: cmake(KF5Plasma)
 BuildRequires: doxygen qt5-assistant
 BuildRequires: gmp-devel
 
