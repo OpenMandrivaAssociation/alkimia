@@ -32,6 +32,7 @@ BuildRequires: cmake(KF5TextWidgets)
 BuildRequires: cmake(KF5WidgetsAddons)
 BuildRequires: cmake(KF5Package)
 BuildRequires: cmake(KF5Plasma)
+BuildRequires: pkgconfig(gmpxx)
 BuildRequires: doxygen qt5-assistant
 BuildRequires: gmp-devel
 
