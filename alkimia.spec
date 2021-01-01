@@ -5,7 +5,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name:		alkimia
-Version:	8.0.3
+Version:	8.0.4
 Release:	1
 Source0: http://download.kde.org/%{stable}/alkimia/%{version}/%{name}-%{version}.tar.xz
 Summary: Common storage and business logic for financial applications
@@ -76,7 +76,6 @@ related information over application boundaries.
 %{_sysconfdir}/xdg/*.knsrc
 %{_bindir}/onlinequoteseditor5
 %{_datadir}/applications/org.kde.onlinequoteseditor5.desktop
-%{_datadir}/alkimia5/misc/financequote.pl
 %{_libdir}/qt5/qml/org/kde/alkimia
 %{_datadir}/icons/hicolor/*/apps/onlinequoteseditor5.*
 %{_datadir}/kservices5/plasma-applet-org.wincak.foreigncurrencies2.desktop
