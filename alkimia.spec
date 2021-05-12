@@ -1,7 +1,6 @@
 %define major 8
 %define libname %mklibname alkimia5 %{major}
 %define devname %mklibname alkimia5 -d
-%define debug_package %{nil}
 %define stable %([ "%(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 
 Summary: Common storage and business logic for financial applications
@@ -73,7 +72,7 @@ related information over application boundaries.
 %find_lang alkimia --all-name
 
 %files -f alkimia.lang
-%{_sysconfdir}/xdg/*.knsrc
+%{_datadir}/knsrcfiles/*.knsrc
 %{_bindir}/onlinequoteseditor5
 %{_datadir}/applications/org.kde.onlinequoteseditor5.desktop
 %{_libdir}/qt5/qml/org/kde/alkimia
