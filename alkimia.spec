@@ -2,16 +2,16 @@
 %define libname %mklibname alkimia5 %{major}
 %define devname %mklibname alkimia5 -d
 %define debug_package %{nil}
-%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
+%define stable %([ "%(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 
-Name:		alkimia
-Version:	8.0.4
-Release:	1
-Source0: http://download.kde.org/%{stable}/alkimia/%{version}/%{name}-%{version}.tar.xz
 Summary: Common storage and business logic for financial applications
+Name: alkimia
+Version: 8.1.0
+Release: 1
 URL: http://community.kde.org/Alkimia
 License: GPL
 Group: System/Libraries
+Source0: http://download.kde.org/%{stable}/alkimia/%{version}/%{name}-%{version}.tar.xz
 BuildRequires: cmake(ECM)
 BuildRequires: cmake(Qt5Core)
 BuildRequires: cmake(Qt5Gui)
@@ -61,7 +61,7 @@ be used by all financial applications in KDE. The target is to share financial
 related information over application boundaries.
 
 %prep
-%setup -q
+%autosetup -p1
 %cmake_kde5 \
 	-DAPPDATA_INSTALL_DIR=%{_datadir}
 
