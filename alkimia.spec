@@ -5,7 +5,7 @@
 
 Summary: Common storage and business logic for financial applications
 Name: alkimia
-Version: 8.1.0
+Version: 8.1.1
 Release: 1
 URL: http://community.kde.org/Alkimia
 License: GPL
@@ -79,6 +79,7 @@ related information over application boundaries.
 %{_datadir}/icons/hicolor/*/apps/onlinequoteseditor5.*
 %{_datadir}/kservices5/plasma-applet-org.wincak.foreigncurrencies2.desktop
 %{_datadir}/metainfo/org.wincak.foreigncurrencies2.appdata.xml
+%{_datadir}/metainfo/org.kde.onlinequoteseditor5.appdata.xml
 %{_datadir}/plasma/plasmoids/org.wincak.foreigncurrencies2
 
 %files -n %{libname}
