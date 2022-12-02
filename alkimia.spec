@@ -2,6 +2,7 @@
 %define libname %mklibname alkimia5 %{major}
 %define devname %mklibname alkimia5 -d
 %define stable %([ "%(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
+%global __requires_exclude ^.*cmake.*::.*$
 
 Summary: Common storage and business logic for financial applications
 Name: alkimia
