@@ -7,7 +7,7 @@
 Summary: Common storage and business logic for financial applications
 Name: alkimia
 Version: 8.1.1
-Release: 1
+Release: 2
 URL: http://community.kde.org/Alkimia
 License: GPL
 Group: System/Libraries
