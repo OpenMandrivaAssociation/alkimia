@@ -6,34 +6,32 @@
 
 Summary: Common storage and business logic for financial applications
 Name: alkimia
-Version: 8.1.2
+Version: 8.2.1
 Release: 1
 URL: https://community.kde.org/Alkimia
 License: GPL
 Group: System/Libraries
 Source0: http://download.kde.org/%{stable}/alkimia/%{version}/%{name}-%{version}.tar.xz
 BuildRequires: cmake(ECM)
-BuildRequires: cmake(Qt5Core)
-BuildRequires: cmake(Qt5Gui)
-BuildRequires: cmake(Qt5DBus)
-BuildRequires: cmake(Qt5Network)
-BuildRequires: cmake(Qt5WebKit)
-BuildRequires: cmake(Qt5WebKitWidgets)
-BuildRequires: cmake(Qt5Test)
-BuildRequires: cmake(KF5Codecs)
-BuildRequires: cmake(KF5Completion)
-BuildRequires: cmake(KF5Config)
-BuildRequires: cmake(KF5CoreAddons)
-BuildRequires: cmake(KF5I18n)
-BuildRequires: cmake(KF5IconThemes)
-BuildRequires: cmake(KF5KDELibs4Support)
-BuildRequires: cmake(KF5NewStuff)
-BuildRequires: cmake(KF5TextWidgets)
-BuildRequires: cmake(KF5WidgetsAddons)
-BuildRequires: cmake(KF5Package)
-BuildRequires: cmake(KF5Plasma)
+BuildRequires: cmake(Qt6Core)
+BuildRequires: cmake(Qt6Gui)
+BuildRequires: cmake(Qt6DBus)
+BuildRequires: cmake(Qt6Network)
+BuildRequires: cmake(Qt6WebEngineCore)
+BuildRequires: cmake(Qt6WebEngineWidgets)
+BuildRequires: cmake(Qt6Test)
+BuildRequires: cmake(KF6Codecs)
+BuildRequires: cmake(KF6Completion)
+BuildRequires: cmake(KF6Config)
+BuildRequires: cmake(KF6CoreAddons)
+BuildRequires: cmake(KF6I18n)
+BuildRequires: cmake(KF6IconThemes)
+BuildRequires: cmake(KF6NewStuff)
+BuildRequires: cmake(KF6TextWidgets)
+BuildRequires: cmake(KF6WidgetsAddons)
+BuildRequires: cmake(KF6Package)
 BuildRequires: pkgconfig(gmpxx)
-BuildRequires: doxygen qt5-assistant
+BuildRequires: doxygen
 BuildRequires: gmp-devel
 
 %description
@@ -62,8 +60,10 @@ related information over application boundaries.
 
 %prep
 %autosetup -p1
-%cmake_kde5 \
-	-DAPPDATA_INSTALL_DIR=%{_datadir}
+%cmake \
+	-DQT_MAJOR_VERSION=6 \
+	-DAPPDATA_INSTALL_DIR=%{_datadir} \
+	-G Ninja
 
 %build
 %ninja -C build
@@ -74,14 +74,12 @@ related information over application boundaries.
 
 %files -f alkimia.lang
 %{_datadir}/knsrcfiles/*.knsrc
-%{_bindir}/onlinequoteseditor5
-%{_datadir}/applications/org.kde.onlinequoteseditor5.desktop
-%{_libdir}/qt5/qml/org/kde/alkimia
-%{_datadir}/icons/hicolor/*/apps/onlinequoteseditor5.*
-%{_datadir}/kservices5/plasma-applet-org.wincak.foreigncurrencies2.desktop
-%{_datadir}/metainfo/org.wincak.foreigncurrencies2.appdata.xml
-%{_datadir}/metainfo/org.kde.onlinequoteseditor5.appdata.xml
-%{_datadir}/plasma/plasmoids/org.wincak.foreigncurrencies2
+%{_bindir}/onlinequoteseditor6
+%{_datadir}/applications/org.kde.onlinequoteseditor6.desktop
+%{_datadir}/icons/hicolor/*/apps/onlinequoteseditor6.*
+%{_datadir}/metainfo/org.kde.onlinequoteseditor6.appdata.xml
+%{_qtdir}/qml/org/kde/alkimia6
+%{_datadir}/plasma/plasmoids/org.wincak.foreigncurrencies26
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}
@@ -90,5 +88,6 @@ related information over application boundaries.
 %files -n %{devname}
 %{_includedir}/*
 %{_libdir}/*.so
-%{_libdir}/cmake/LibAlkimia5-%(echo %{version} |cut -d. -f1-2)
-%{_libdir}/pkgconfig/libalkimia5.pc
+%{_libdir}/cmake/LibAlkimia6-%(echo %{version} |cut -d. -f1-2)
+%{_libdir}/pkgconfig/libalkimia6.pc
+%{_datadir}/gdb/auto-load%{_libdir}/libalkimia6.so.*-gdb.py
